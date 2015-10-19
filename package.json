@@ -1,0 +1,33 @@
+{
+  "name": "mpss-test-ja",
+  "version": "1.0.0",
+  "description": "MPSS (The Mood and Physical Symptom Scale) in Japanese",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CureApp/mpss-test-ja.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CureApp/mpss-test-ja/issues"
+  },
+  "homepage": "https://github.com/CureApp/mpss-test-ja",
+  "keywords": [
+    "Japanese",
+    "MPSS",
+    "tobacco",
+    "mood",
+    "medical",
+    "nicotine dependence",
+    "Fagerstrom",
+    "smoking"
+  ],
+  "author": "CureApp, Inc.",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
