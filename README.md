@@ -27,7 +27,7 @@ MPSS.getChoices(4); // Q5の選択肢の配列
 点数を計算
 ```js
 // 引数はQ1~Q7 の回答の配列. getChoices で得られた配列のインデックスの値の列を渡す
-MPSS.calculate([2,1,0,3,1,0,3]); // 6 を返す。
+MPSS.calculate([4,3,2,1,0,5,4]); // 16 を返す。
 ```
 
 ## LICENSE
