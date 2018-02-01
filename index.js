@@ -1,4 +1,4 @@
-module.exports = {
+var MPSS = {
 
     /**
     質問一覧を返す
@@ -41,6 +41,42 @@ module.exports = {
 
 
     /**
+    各質問の。
+    **/
+
+    questionExpressions: [
+        '抑うつ感',
+        'いらいら感',
+        '空腹感',
+        '落ち着きのなさ',
+        '集中力の欠如',
+        '喫煙衝動の頻度',
+        '喫煙衝動の強さ'
+    ],
+
+    /**
+    qsIndexに相当する質問に対してanswerIndexと答えたときに、どういう点数になるのか。
+
+    @method getScore
+    @param {Array(Number)} answerIndex 選んだ選択肢のインデックスの配列(質問順)
+    @return {Number} 点数
+    */
+    getScore: function(qsIndex, answerIndex) {
+
+        var points = [
+            [1, 2, 3, 4, 5],
+            [1, 2, 3, 4, 5],
+            [1, 2, 3, 4, 5],
+            [1, 2, 3, 4, 5],
+            [1, 2, 3, 4, 5],
+            [5, 4, 3, 2, 1, 0],
+            [5, 4, 3, 2, 1, 0]
+        ];
+
+        return points[qsIndex][answerIndex];
+    },
+
+    /**
     indexで与えられた選択肢の配列から、点数を計算する
     点数表から質問ごとの点数を算出して計算
 
@@ -54,21 +90,11 @@ module.exports = {
             throw new Error('引数の長さが7でない');
         }
 
-        var points = [
-            [1, 2, 3, 4, 5],
-            [1, 2, 3, 4, 5],
-            [1, 2, 3, 4, 5],
-            [1, 2, 3, 4, 5],
-            [1, 2, 3, 4, 5],
-            [5, 4, 3, 2, 1, 0],
-            [5, 4, 3, 2, 1, 0]
-        ];
+        return answerIndexes.reduce(function(total, answerIndex, qsIndex) {
 
-        return answerIndexes.reduce(function(total, qsIndex, i) {
+            var point = MPSS.getScore(qsIndex, answerIndex)
 
-            var point = points[i][qsIndex];
-
-            if (point === undefined) {
+            if (point == null) {
                 throw new Error((i + 1) + '番目の値が不正');
             }
 
@@ -78,3 +104,4 @@ module.exports = {
     }
 };
 
+module.exports = MPSS
