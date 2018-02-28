@@ -44,11 +44,20 @@ console.assert(MPSS.getScore(6, 3) === 2);
 // questionExpressions
 console.assert(MPSS.questionExpressions[0] === '抑うつ感');
 console.assert(MPSS.questionExpressions[1] === 'いらいら感');
-console.assert(MPSS.questionExpressions[2] === '空腹感');
-console.assert(MPSS.questionExpressions[3] === '落ち着きのなさ');
+console.assert(MPSS.questionExpressions[2] === '落ち着きのなさ');
+console.assert(MPSS.questionExpressions[3] === '空腹感');
 console.assert(MPSS.questionExpressions[4] === '集中力の欠如');
 console.assert(MPSS.questionExpressions[5] === '喫煙衝動の頻度');
 console.assert(MPSS.questionExpressions[6] === '喫煙衝動の強さ');
+
+// getQuestionExpressionEN
+console.assert(MPSS.getQuestionExpressionEN('抑うつ感') === 'Depressed');
+console.assert(MPSS.getQuestionExpressionEN('いらいら感') === 'Irritable');
+console.assert(MPSS.getQuestionExpressionEN('落ち着きのなさ') === 'Restless');
+console.assert(MPSS.getQuestionExpressionEN('空腹感') === 'Hungry');
+console.assert(MPSS.getQuestionExpressionEN('集中力の欠如') === 'Poor concentration');
+console.assert(MPSS.getQuestionExpressionEN('喫煙衝動の頻度') === 'Time spent with urges');
+console.assert(MPSS.getQuestionExpressionEN('喫煙衝動の強さ') === 'Strength of urges');
 
 toThrowError(function() { MPSS.calculate([0,0,0,3,0,0]) }); // 長さのエラーを出す
 toThrowError(function() { MPSS.calculate([0,0,0,0,0,0,6]) }); // 値のエラーを出す
