@@ -47,12 +47,32 @@ var MPSS = {
     questionExpressions: [
         '抑うつ感',
         'いらいら感',
-        '空腹感',
         '落ち着きのなさ',
+        '空腹感',
         '集中力の欠如',
         '喫煙衝動の頻度',
         '喫煙衝動の強さ'
     ],
+
+    /**
+    各質問の項目（英語）を取得する。
+
+    @method getQuestionExpressionEN
+    @param {String} 日本語の項目名
+    @return {String} 英語の項目名
+    **/
+
+    getQuestionExpressionEN: function(expression) {
+        return {
+            '抑うつ感': 'Depressed',
+            'いらいら感': 'Irritable',
+            '落ち着きのなさ': 'Restless',
+            '空腹感': 'Hungry',
+            '集中力の欠如': 'Poor concentration',
+            '喫煙衝動の強さ': 'Strength of urges',
+            '喫煙衝動の頻度': 'Time spent with urges',
+        }[expression]
+    },
 
     /**
     qsIndexに相当する質問に対してanswerIndexと答えたときに、どういう点数になるのか。
